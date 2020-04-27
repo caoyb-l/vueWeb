@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" />
+    <!-- content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <script src="js/blockly_compressed2.js"></script>
+    <script src="js/blocks_compressed.js"></script>
+    <script src="js/javascript_compressed.js"></script>
+    <script src="js/zh-hans.js"></script>
+    <script type="text/javascript" src="js/storage.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+    <!-- <link rel="stylesheet" href="./css/style.css" /> -->
+    <title>可视化编程</title>
+    <style>
+      body {
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      #content {
+        overflow: hidden;
+      }
+
+      /* 左边导航栏 */
+      .left {
+        width: 100%;
+        height: 100%;
+        float: left;
+        border: 1px solid red;
+        position: relative;
+      }
+      /* 右边编辑栏 */
+      /* .right {
+        width: 500px;
+        height: 750px;
+        float: right;
+        position: relative;
+      } */
+      /* 窗口宽度 */
+      .blocklyTreeRow {
+        width: 98px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content">
+      <div id="blocklyDiv" style="width: 100%;height: 100%; position: absolute;"></div>
+    </div>
+
+    <xml id="toolbox">
+      <category name="手臂" colour="#1890FF">
+        <block type="arms_right_raise"></block>
+        <block type="arms_right_top"></block>
+        <block type="arms_right_down"></block>
+        <block type="arms_left_raise"></block>
+        <block type="arms_left_top"></block>
+        <block type="arms_left_down"></block>
+        <block type="arms_left_low"></block>
+        <block type="salute"></block>
+        <block type="shake_hands"></block>
+        <block type="embrace"></block>
+        <!-- <block type="swing_arm" ></block>摆臂 -->
+      </category>
+      <category name="导航" colour="#1890FF">
+        <block type="blockly_moveTo_point"></block>
+        <block type="block_go_home"></block>
+        <block type="blockly_luzhi_point"></block>
+        <block type="blockly_shouhui_point"></block>
+      </category>
+      <category name="移动" colour="#1890FF">
+        <block type="block_move_goForward"></block>
+        <block type="block_move_goBack"></block>
+        <block type="block_move_revolve"></block>
+        <block type="block_turn_left"></block>
+        <block type="block_turn_right"></block>
+      </category>
+      <category name="语音" colour="#1890FF">
+        <block type="block_speak"></block>
+      </category>
+      <category name="媒体" colour="#1890FF">
+        <block type="block_img_fullScreen"></block>
+        <block type="block_hiden_fullScreen"></block>
+        <block type="block_play_audio"></block>
+        <block type="block_play_video"></block>
+        <block type="block_openUrl"></block>
+        <block type="block_backHome"></block>
+      </category>
+      <category name="消毒">
+        <block type="block_on_spray"></block>
+        <block type="block_off_spray"></block>
+        <block type="block_on_ozone"></block>
+        <block type="block_off_ozone"></block>
+        <block type="block_on_uvgi"></block>
+        <block type="block_off_uvgi"></block>
+      </category>
+      <category name="常用" colour="#1890FF">
+        <!-- 导航 -->
+        <block type="blockly_moveTo_point"></block>
+        <!-- 语音 -->
+        <block type="block_speak"></block>
+        <!-- 左手抬 -->
+        <block type="arms_left_raise"></block>
+        <!-- 左手复位 -->
+        <block type="arms_left_down"></block>
+        <!-- 右手抬 -->
+        <block type="arms_right_raise"></block>
+        <!-- 右手复位 -->
+        <block type="arms_right_down"></block>
+        <!-- 全屏图片 -->
+        <block type="block_img_fullScreen"></block>
+        <!-- 隐藏全屏 -->
+        <block type="block_hiden_fullScreen"></block>
+        <!-- 表情 -->
+        <block type="block_chg_express"></block>
+        <!-- 摇头 -->
+        <block type="block_shook_head"></block>
+      </category>
+      <category name="其 他" colour="#1890FF">
+        <!-- <block type="block_shutUp"></block>闭嘴 -->
+        <block type="block_robot_interaction"></block>
+        <block type="block_jump_commandSet"></block>
+        <block type="block_placeholder"></block>
+        <block type="block_chg_express"></block>
+        <block type="block_shook_head"></block>
+        <block type="Bluetooth"></block>
+        <block type="wait_for"></block>
+        <block type="block_amplify_sound"></block>
+        <block type="block_down_sound"></block>
+        <!-- <block type="block_loudest_sound"></block>音量最大 -->
+        <!-- <block type="block_minimum_sound"></block>音量最小 -->
+        <block type="block_rest"></block>
+        <block type="block_wakeUp"></block>
+        <block type="block_robot_open"></block>
+        <block type="block_robot_close"></block>
+        <block type="block_charge"></block>
+      </category>
+      <category name="..."></category>
+      <category name=""></category>
+      <category name="保存" colour="#411BEA"></category>
+    </xml>
+    <div id="cmd"></div>
+  </body>
+  <script type="text/javascript" src="js/init.js"></script>
+  <script type="text/javascript" src="actionJs/arm.js"></script>
+  <script type="text/javascript" src="actionJs/move.js"></script>
+  <script type="text/javascript" src="actionJs/speak.js"></script>
+  <script type="text/javascript" src="actionJs/media.js"></script>
+  <script type="text/javascript" src="actionJs/Hospital.js"></script>
+  <script type="text/javascript" src="actionJs/other.js"></script>
+  <script>
+    function init() {
+      var width = document.documentElement.clientWidth,
+        height = document.documentElement.clientHeight,
+        $wrapper = document.getElementById('content')
+      $wrapper.style.height = height
+      $wrapper.style.width = width
+
+      var divheight = $('.blocklyTreeRoot').css('width')
+      divheight = divheight.substring(0, divheight.indexOf('px')) * 1 + 3
+      //console.log(divheight);
+      $('#retrun').css({
+        width: divheight + 'px'
+      })
+
+      var a = $('.blocklyTreeRow').length
+      for (var i = 1, y = a; i < a; i++) {
+        $('.blocklyTreeRow:eq(' + i + ')').attr(
+          'category-name',
+          $('.blocklyTreeRow:eq(' + i + ')').children()[2].innerHTML
+        )
+      }
+      a = null
+      $('.blocklyTreeRow').css('border-left', '0px solid #fff')
+      $('.blocklyTreeRow').css('padding-left', '6px')
+    }
+    $(function() {
+      init()
+    })
+  </script>
+</html>

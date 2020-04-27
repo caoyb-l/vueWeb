@@ -1,0 +1,234 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    background-color: #f5f5f5;
+    font-family: sans-serif;
+    overflow: hidden;
+  }
+  h1 {
+    font-weight: normal;
+    font-size: 140%;
+  }
+  table {
+    height: 100%;
+    width: 100%;
+  }
+  #blocklyArea {
+    height: 99%;
+  }
+  .choose{
+    position: absolute;
+    z-index: 1000;
+    top: 4%;
+    right: 10%;
+  }
+  .chooselist{
+    position: absolute;
+    z-index: 1000;
+    top:0;
+    right:0;
+    background-color:#fff;
+    display:none;
+    border:1px solid #dfc376;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  .apply{  
+    color:red;
+  }
+  .apply::after{
+    content:'.';
+    display:inline-block;
+    width:10px;
+    height:10px;
+    color:red;
+  }
+  .save{
+    position: absolute;
+    z-index: 1000;
+    top: 4%;
+    right: 16%;
+  }
+  .workList{
+    position: absolute;
+    z-index: 1000;
+    top: 4%;
+    right: 4%;
+  }
+  .list{
+    position: absolute;
+    z-index: 1000;
+    top:0;
+    right:0px;
+    background-color:#fff;
+    display:none;
+    border:1px solid #dfc376;
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  .list div{
+    padding:5px 10px;
+    font-size:16px;
+    line-height:25px;  
+    border-bottom:1px solid #dfc376;
+  }
+  .list div:nth-child(1),.chooselist div{    
+    padding:5px 10px;
+    font-size:20px;
+    line-height:25px;
+    border-bottom:1px solid #dfc376;
+  }
+  .list ul,.chooselist ul{
+    list-style: none;
+    margin:0px;
+    padding:5px 0px 5px 10px;
+    color:#444c;
+
+  }
+  .list li,.chooselist li{
+     height:35px;
+     line-height:35px;
+     width:150px;
+     font-size:18px;
+     border-bottom: 1px solid #dfc376;
+  }
+  .open{
+    background:url(../img/program.png);
+    background-size:20px 20px;
+    width:20px;
+    height:20px;
+    float:right;
+   margin-top:5px;
+   margin-right:10px;
+   display:none;
+  }
+  .delete{ 
+    /* display: inline-block; */
+    background:url(../img/error.png);
+    background-size:20px 20px;
+    width:20px;
+    height:20px;
+    float:right;
+   margin-top:5px;
+   display:none;
+   margin-right:5px;
+  }
+  .close{
+    background:url(../img/error.png);
+    background-size:20px 20px;
+    width:20px;
+    height:20px;
+    float:right;
+   margin-top:3px;  
+  }
+  .run{
+    width: 190px;
+    height: 11%;
+    color: #fff;
+    background: #e1b745;
+    border: 3px solid #dfc376;
+    border-radius: 3px;
+    line-height: 1.5rem;
+    white-space: nowrap;
+    font-size: 1.5rem;
+    float: left;
+    display: block;
+    position: absolute;
+    z-index: 120;
+    bottom: 12px;
+    left: 4px;
+  }
+  .top{
+    width: 100%;
+    height: 12%;
+    background-color: #fff;
+  }
+  #return{
+    width: 120px;
+    height:36px;
+    position: absolute;
+    z-index: 10000;
+  }
+  .run img{
+    margin-left: 20px;
+    margin-top:6px; 
+  }
+  .run strong{
+    font-weight: normal;
+    position: absolute;
+    right: 20%;
+  }
+  #runing{
+    width: 120px;
+    height:36px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 10000;
+    background-color: blueviolet;
+  }
+  /* .blocklyTreeRow{
+    webkit-transform: translate3d(0,0,0); 
+    -moz-transform: translate3d(0,0,0); 
+    -ms-transform: translate3d(0,0,0); 
+    -o-transform: translate3d(0,0,0); 
+    transform: translate3d(0,0,0);
+  } */
+ .robotShadow{
+   position: fixed;
+   width:100%;
+   height:100%;
+   background-color:rgba(0,0,0,0.2);
+   z-index: 1001;
+   top:0px;
+   left:0px;
+   display: none;
+ }
+.selectRobot{
+  width:250px; 
+  /* height:150px; */
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-top:-100px;
+  margin-left:-80px;
+  background-color: #fff;
+  /* border:1px solid #ededed;
+  box-shadow: 0 0 2px 2px #e5e5e58a;
+  */
+  /* display: none; */
+  
+}
+.selectTitle{
+  width:100%;
+  height:35px;
+  text-align: center;
+  background-color:rgba(169, 172, 171, 0.19);
+}
+.selectRobot select{
+    width:200px;
+    margin-bottom:30px;
+    height:26px;
+}
+.btnGroup{
+  text-align: center;
+}
+.btnGroup button{ 
+  line-height: 20px;
+  background-color:#0b76cc;
+  padding:4px 10px;
+  box-sizing: border-box;
+  border:none;
+  outline: none;
+  color:#fff;
+  margin-left:20px;
+  box-shadow: 0 0 2px 1px #c8e2f7;
+
+}
+/* .btnGroup button:nth-child(2){
+  background-color: #c6c6c6;
+  box-shadow: 0 0 2px 1px #c8e2f7;
+} */
